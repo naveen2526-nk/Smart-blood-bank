@@ -1,75 +1,79 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  <style type="text/css">
-    .bs-example {
-      margin: 0px;
-
-    }
-
+  <style>
     .navbar-brand {
       font-size: 20px;
       font-family: sans-serif;
+    }
 
+    .nav-link {
+      white-space: nowrap;
+    }
+
+    /* Adjust logout button on mobile */
+    .nav-item form {
+      margin: 0;
+    }
+
+    .nav-item form button {
+      color: white;
     }
   </style>
 </head>
 
 <body>
 
+  <nav class="navbar navbar-expand-md navbar-dark bg-danger fixed-top">
+    <a class="navbar-brand" href="/"><i class="fas fa-heartbeat"></i> Blood Bank Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <!-- Left side links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/patient/patientlogin"><i class="fas fa-procedures"></i> Patient</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/donor/donorlogin"><i class="fas fa-user"></i> Donor</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/adminlogin"><i class="fas fa-user-shield"></i> Admin</a>
+        </li>
+      </ul>
 
-  <div class="bs-example">
-    <nav style="background-color: #FF0018;" class="navbar navbar-expand-md navbar-dark fixed-top">
-      <a href="/" class="navbar-brand"><i class="fas fa-heartbeat"></i>&nbsp; Blood Bank Management</a>
-      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <!-- Right side (logout) -->
+      <ul class="navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <form method="post" action="/logout/" class="form-inline">
+            {% csrf_token %}
+            <button type="submit" class="nav-link btn btn-link text-white p-0"><i class="fas fa-sign-out-alt"></i> Logout</button>
+          </form>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
 
-      <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+  <div style="margin-top:70px;"></div> <!-- spacing for fixed navbar -->
 
-
-        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" style="color: white;" href="/"><i class="fas fa-home"></i>&nbsp; Home</i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color: white;" href="/patient/patientlogin"><i class="fas fa-procedures"></i>&nbsp; Patient</i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color: white;" href="/donor/donorlogin"><i class="fas fa-user"></i>&nbsp; Donor</i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color: white;" href="/adminlogin"><i class="fas fa-user-shield"></i>&nbsp; Admin</i></a>
-                </li>
-                
-                
-            </ul>
-        </div>
-
-
-
-
-      </div>
-    </nav>
-  </div>
-
-<!--
-developed By : sumit kumar
-facebook : fb.com/sumit.luv
-youtube : youtube.com/lazycoders
--->
 </body>
 
 </html>
