@@ -6,3 +6,4 @@ sqlparse==0.4.4
 gunicorn==21.2.0
 setuptools>=70.0.0                  # leave as >= to avoid build errors
 Pillow==10.0.0
+wheel==0.41.2
