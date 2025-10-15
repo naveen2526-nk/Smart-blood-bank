@@ -49,3 +49,5 @@ urlpatterns = [
     path('update-reject-status/<int:pk>', views.update_reject_status_view,name='update-reject-status'),
    
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
