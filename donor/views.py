@@ -19,7 +19,7 @@ def donor_signup_view(request):
         userForm=forms.DonorUserForm(request.POST)
         donorForm=forms.DonorForm(request.POST,request.FILES)
         if userForm.is_valid() and donorForm.is_valid():
-            user=userForm.save()
+            user=userForm.save(commit=False) #if need to change clear commit 
             user.set_password(user.password)
             user.save()
             donor=donorForm.save(commit=False)
