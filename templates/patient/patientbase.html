@@ -184,6 +184,13 @@ body{
             <li><a style="text-decoration:none;" href="/"><i class="fas fa-home"></i>Home</a></li>
             <li><a style="text-decoration:none;" href="/patient/make-request"><i class="fas fa-sync-alt"></i>Make Request</a></li>
             <li><a style="text-decoration:none;" href="/patient/my-request"><i class="fas fa-history"></i>Request History</a></li>
+            <li class="nav-item">
+                    <form method="post" action="{% url 'logout' %}">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-link">Logout</button>
+                    </form>
+
+                </li>
 
         </ul> 
 
