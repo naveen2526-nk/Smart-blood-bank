@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class Patient(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    profile_pic= models.ImageField(upload_to='profile_pic/Patient/',null=True,blank=True)
+    profile_pic= models.FileField(upload_to='profile_pic/Patient/',null=True,blank=True)
 
     age=models.PositiveIntegerField()
     bloodgroup=models.CharField(max_length=10)
