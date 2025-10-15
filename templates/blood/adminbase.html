@@ -189,6 +189,14 @@ body{
             <li><a style="text-decoration:none;" href="/admin-request"><i class="fas fa-sync-alt"></i>Blood Requests</a></li>
             <li><a style="text-decoration:none;" href="/admin-request-history"><i class="fas fa-history"></i>Request History</a></li>
             <li><a style="text-decoration:none;" href="/admin-blood"><i class="fas fa-hand-holding-water"></i>Blood Stock</a></li>
+            <li class="nav-item">
+                  <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="nav-link btn btn-link" style="color: white; text-decoration: none; padding: 0;">
+                      <i class="fas fa-sign-out-alt"></i>&nbsp; Logout
+                    </button>
+                  </form>
+                </li>
            
         </ul> 
 
